@@ -20,6 +20,14 @@ const HomePage = () => {
 			new THREE.MeshBasicMaterial({ color: 0xffff00 }),
 		];
 
+		// Create the cube and add it to the demo scene.
+		const cube = new THREE.Mesh(
+			new THREE.BoxBufferGeometry(0.2, 0.2, 0.2),
+			materials
+		);
+		cube.position.set(1, 1, 1);
+		scene.add(cube);
+
 		// To be continued in upcoming steps.
 
 		// Set up the WebGLRenderer, which handles rendering to the session's base layer.
