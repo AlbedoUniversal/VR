@@ -15,7 +15,7 @@ export const XRCubeContainer = () => {
 	return (
 		<>
 			<ARButton />
-			<script src="/js/polyfills.a53bc8dd682d0ee9.js"></script>
+			<script src="/js/webxr-polyfill.module.js"></script>
 
 			<Canvas>
 				<XR>

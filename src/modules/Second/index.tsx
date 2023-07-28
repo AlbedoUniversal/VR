@@ -106,6 +106,8 @@ const SecPage = () => {
 				<title>Hello WebXR!</title>
 			</head>
 			<body>
+				<script src="/js/webxr-polyfill.module.js"></script>
+
 				<button onClick={startXR}>Start Hello WebXR</button>
 			</body>
 		</div>
