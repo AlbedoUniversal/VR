@@ -1,7 +1,20 @@
 import React, { useEffect } from 'react';
 import * as THREE from 'three';
 
+let WebXRPolyfill;
+if (typeof window !== 'undefined') {
+	WebXRPolyfill = require('webxr-polyfill').default;
+}
+
 const SecPage = () => {
+	useEffect(() => {
+		console.log(WebXRPolyfill, 'WebXRPolyfill');
+
+		if (WebXRPolyfill) {
+			const polyfill = new WebXRPolyfill();
+			// Используйте здесь polyfill и связанный с ним код XR
+		}
+	}, []);
 	const startXR = async () => {
 		const canvas = document.createElement('canvas');
 		document.body.appendChild(canvas);
