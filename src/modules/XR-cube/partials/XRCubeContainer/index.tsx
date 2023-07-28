@@ -4,17 +4,10 @@ import { ARButton, XR } from '@react-three/xr';
 
 import { useEffect } from 'react';
 
-let WebXRPolyfill;
-if (typeof window !== 'undefined') {
-	WebXRPolyfill = require('webxr-polyfill').default;
-}
-
 export const XRCubeContainer = () => {
 	useEffect(() => {
-		console.log(WebXRPolyfill, 'WebXRPolyfill');
-
-		if (WebXRPolyfill) {
-			const polyfill = new WebXRPolyfill();
+		if (typeof window !== 'undefined' && window.WebXRPolyfill) {
+			const polyfill = new window.WebXRPolyfill();
 			// Используйте здесь polyfill и связанный с ним код XR
 		}
 	}, []);
@@ -22,6 +15,7 @@ export const XRCubeContainer = () => {
 	return (
 		<>
 			<ARButton />
+			<script src="/js/polyfills.a53bc8dd682d0ee9.js"></script>
 
 			<Canvas>
 				<XR>
