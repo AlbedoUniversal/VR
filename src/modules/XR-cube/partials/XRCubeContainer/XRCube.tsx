@@ -1,10 +1,7 @@
 import { OrbitControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import WebXRPolyfill from 'webxr-polyfill';
 
 export const XRCube = () => {
-	const polyfill = new WebXRPolyfill();
-
 	useFrame((state, delta) => {
 		console.log('useFrame');
 	});
