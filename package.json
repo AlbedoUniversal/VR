@@ -50,7 +50,8 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-hook-form": "^7.45.1",
-		"three": "^0.154.0"
+		"three": "^0.154.0",
+		"webxr-polyfill": "^2.0.3"
 	},
 	"devDependencies": {
 		"@next/eslint-plugin-next": "^13.4.9",

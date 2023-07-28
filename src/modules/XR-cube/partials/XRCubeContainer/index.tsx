@@ -8,6 +8,7 @@ export const XRCubeContainer = () => {
 	return (
 		<>
 			<ARButton />
+
 			<Canvas>
 				<XR>
 					<XRCube />
