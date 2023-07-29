@@ -17,10 +17,10 @@ const SecPage = () => {
 	}, []);
 
 	const startXR = async () => {
-		if (!('xr' in navigator)) {
-			alert('WebXR API not available in this browser');
-			return;
-		}
+		// if (!('xr' in navigator)) {
+		// 	alert('WebXR API not available in this browser');
+		// 	return;
+		// }
 
 		const gl = cRef.current.getContext('webgl', { xrCompatible: true });
 
@@ -102,7 +102,7 @@ const SecPage = () => {
 	return (
 		<div>
 			<canvas ref={cRef} />
-			<button onClick={startXR()}>Start Hello WebXR</button>
+			<button onClick={startXR}>Start Hello WebXR</button>
 		</div>
 	);
 };
