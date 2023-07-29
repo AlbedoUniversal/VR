@@ -102,7 +102,7 @@ const SecPage = () => {
 	return (
 		<div>
 			<canvas ref={cRef} />
-			<button onClick={startXR}>Start Hello WebXR</button>
+			<button onClick={startXR()}>Start Hello WebXR</button>
 		</div>
 	);
 };

@@ -30,7 +30,7 @@ export default function Document() {
 				/>
 				<meta name="msapplication-TileColor" content="#da532c" />
 				<meta name="theme-color" content="#ffffff" />
-				<Script strategy="beforeInteractive" src="/js/webxr-polyfill.js" />
+				{/* <Script strategy="beforeInteractive" src="/js/webxr-polyfill.js" /> */}
 			</Head>
 			<body>
 				<Main />
