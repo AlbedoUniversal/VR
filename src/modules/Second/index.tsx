@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { Canvas } from '@react-three/fiber';
 
 let WebXRPolyfill;
 if (typeof window !== 'undefined') {
@@ -7,18 +8,21 @@ if (typeof window !== 'undefined') {
 }
 
 const SecPage = () => {
+	const cRef = useRef(null);
 	useEffect(() => {
-		console.log(WebXRPolyfill, 'WebXRPolyfill');
-
 		if (WebXRPolyfill) {
 			const polyfill = new WebXRPolyfill();
 			// Используйте здесь polyfill и связанный с ним код XR
 		}
 	}, []);
+
 	const startXR = async () => {
-		const canvas = document.createElement('canvas');
-		document.body.appendChild(canvas);
-		const gl = canvas.getContext('webgl', { xrCompatible: true });
+		if (!('xr' in navigator)) {
+			alert('WebXR API not available in this browser');
+			return;
+		}
+
+		const gl = cRef.current.getContext('webgl', { xrCompatible: true });
 
 		const scene = new THREE.Scene();
 
@@ -41,7 +45,7 @@ const SecPage = () => {
 		const renderer = new THREE.WebGLRenderer({
 			alpha: true,
 			preserveDrawingBuffer: true,
-			canvas: canvas,
+			canvas: cRef.current,
 			context: gl,
 		});
 		renderer.autoClear = false;
@@ -97,19 +101,8 @@ const SecPage = () => {
 
 	return (
 		<div>
-			<head>
-				<meta charset="UTF-8" />
-				<meta
-					name="viewport"
-					content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-				/>
-				<title>Hello WebXR!</title>
-			</head>
-			<body>
-				<script src="/js/webxr-polyfill.module.js"></script>
-
-				<button onClick={startXR}>Start Hello WebXR</button>
-			</body>
+			<canvas ref={cRef} />
+			<button onClick={startXR}>Start Hello WebXR</button>
 		</div>
 	);
 };

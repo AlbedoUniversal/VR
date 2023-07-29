@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
 	return (
@@ -29,6 +30,7 @@ export default function Document() {
 				/>
 				<meta name="msapplication-TileColor" content="#da532c" />
 				<meta name="theme-color" content="#ffffff" />
+				<Script strategy="beforeInteractive" src="/js/webxr-polyfill.js" />
 			</Head>
 			<body>
 				<Main />
